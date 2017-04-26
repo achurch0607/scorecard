@@ -1,0 +1,90 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 20, 2017, 9:21:53 PM
+    Author     : Adam
+*/
+
+#updateScore {
+    color: black;
+    float: right;
+    font-weight: bold;
+    
+}
+
+#lastRound {
+    color: red;
+    float: left;
+}
+
+#finishRound{
+    float: right;
+    margin-right: 2%
+}
+
+#total{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.ace{
+    background-color: gold;
+    color: black;
+}
+.birdie{
+    background-color: green;
+    color: black;
+}
+.pars{
+    background-color: lightgray;
+    color: black;
+}
+.bogey{
+    background-color: orangered;
+    color: black;
+}
+.double{
+    background-color: red;
+    color: black;
+}
+
+#ace{
+    background-color: gold;
+    color: black;
+    font-weight: bold;
+}
+#birdies{
+    background-color: green;
+    color: black;
+    font-weight: bold;
+}
+#pars{
+    background-color: lightgray;
+    color: black;
+    font-weight: bold;
+}
+#bogey{
+    background-color: orangered;
+    color: black;
+    font-weight: bold;
+}
+#double{
+    background-color: red;
+    color: black;
+    font-weight: bold;
+}
+#total{
+    color: black;
+    font-weight: bold;  
+}
+
+input[type=number]{
+    width: 30px;
+
+    color: black;
+} 
