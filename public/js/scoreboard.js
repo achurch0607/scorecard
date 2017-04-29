@@ -3,7 +3,7 @@ function showDiv(elem){
    if(elem.value)
         document.getElementById('scoreboard').style.display = "block";
 //        document.getElementById('lastRound').style.display = "block";
-        document.getElementById('topRow').style.display = "block";
+//        document.getElementById('topRow').style.display = "block";
         document.getElementById('total').style.display = "block";
     }   
     
@@ -38,10 +38,8 @@ function updateScore(){
         console.log(score[count]);
         if(score[count] == 1){
             ace += 1;
-            alert(score[count]);
         }else if(score[count] == 2){
             birdie += 1;
-            alert(score[count]);
         }else if(score[count] == 3){
             par += 1;
         }else if(score[count] == 4){
@@ -59,14 +57,12 @@ updateScoreCount(scoreNames);
     var notes = $("input[name='notes[]']").map(function(){return $(this).val();}).get()
     var finish = $("input[name='finishRound'").prop('checked');
     var course = document.getElementById('course').value;
-
     $.ajax({
         url: 'scoreboard',
         type: "post",
         data: {'score':score,'notes':notes, 'finish':finish, 'course':course, '_token': $('input[name=_token]').val()},
         success: function(data){
           console.log(data);
-    //        alert(JSON.stringify(data, null, 4));
         }
     });      
 }; 
@@ -83,15 +79,12 @@ updateScoreCount(scoreNames);
         console.log(data);
 //     
         showLastRound(data);
-//        alert(data.lastRound[0]['score']);
       }
     });   
   };
 
 function showLastRound(data){
-    var score = ((data.lastRound[0]['score'][0] + 'score').split(","));
-//    alert(score);
-    
+    var score = ((data.lastRound[0]['score'][0] + 'score').split(","));   
 }
 
 function scoreColors(input, value){
@@ -113,9 +106,16 @@ function scoreColors(input, value){
 
  }
 function updateScoreCount(scoreNames){
-    document.getElementById('ace').innerHTML="Aces: " + scoreNames.ace;    
-    document.getElementById('birdies').innerHTML="Birdies: " + scoreNames.birdie;  
+    var ace = document.getElementById('ace');
+    
+    ace.innerHTML="Aces: " + scoreNames.ace;
+    $('#ace').css('display', 'inline-block');
+    document.getElementById('birdies').innerHTML="Birdies: " + scoreNames.birdie;
+    $('#birdies').css('display', 'inline-block');
     document.getElementById('pars').innerHTML="Pars: " + scoreNames.par;
+    $('#pars').css('display', 'inline-block');
     document.getElementById('bogey').innerHTML="bogey: " + scoreNames.bogey;
+    $('#bogey').css('display', 'inline-block');
     document.getElementById('double').innerHTML="2+: " + scoreNames.double;
+    $('#double').css('display', 'inline-block');
 }

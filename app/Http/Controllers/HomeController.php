@@ -39,14 +39,17 @@ class HomeController extends Controller
         
 //        return;
         //save round to database when finishRound is checked
-        $score['score'] = json_encode($input['score']);
-        $score['notes'] = json_encode($input['notes']);
+        $score['score'] = $input['score'];
+        $score['notes'] = $input['notes'];
+        $insertScore = json_encode($score);
+        var_dump($insertScore);
+//        return;
         $total = array_sum($input['score']);
         $date = date("Y-m-d H:i:s"); 
         if ($input['finish'] == 'true'){
-//            var_dump($input['score']);          
+            var_dump($input['score']);          
             DB::table('scorecard')->insert([
-                ['user' => '1', 'course' => $input['course'], 'score' => $score, 'total' => $total, 'finishRound' => '1', 'created_at' => $date ],              
+                ['user' => '1', 'course' => $input['course'], 'score' => $insertScore,'total' => $total, 'finishRound' => '1', 'created_at' => $date ],              
             ]);
         }
         

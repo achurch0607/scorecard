@@ -57,30 +57,36 @@ and open the template in the editor.
     background-color: gold;
     color: black;
     font-weight: bold;
+    display: none;
 }
 #birdies{
     background-color: green;
     color: black;
     font-weight: bold;
+    display: none;
 }
 #pars{
     background-color: lightgray;
     color: black;
     font-weight: bold;
+    display: none;
 }
 #bogey{
     background-color: orangered;
     color: black;
     font-weight: bold;
+    display: none;
 }
 #double{
     background-color: red;
     color: black;
     font-weight: bold;
+    display: none;
 }
 #total{
     color: black;
-    font-weight: bold;  
+    font-weight: bold; 
+    display: none;
 }
 
 input[type=number]{
@@ -88,3 +94,7 @@ input[type=number]{
 
     color: black;
 } 
+#app{
+    background-image: url('https://m.discgolfscene.com/courses/559/e2d45b6ee79a.jpg');
+    opacity: .4;
+}

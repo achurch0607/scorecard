@@ -1,30 +1,30 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+            
             <div class="panel panel-default">
-                <div class="panel-heading">Score Card
-                
+                <div class="panel-heading">
+                    
+                       <input type="checkbox" id="finishRound" name="finishRound">Save Score 
+                        <input type='button' onclick="updateScore()" id="updateScore" value="Update Score">
+
+                   
+                </div>
+             <div class="col-md-4 col-md-offset-6">
+                        
+                    
                         <select  id="course" onchange="showDiv(this)">
                             <option value="0">Choose Your Course</option>
                             <option value="Creekside">Creekside</option>
                             <option value="Taylorsville">Taylorsville</option>
                             <option value="Roots">Roots</option>
                         </select>
-                    <span id="finishRound">Save Score</span><input type="checkbox" id="finishRound" name="finishRound" style="margin-left: 5px;">
-                                <input type='button' onclick="updateScore()" id="updateScore" value="Update Score">
-                </div>
+                    </div>
                     <table id="scoreboard" style="display: none;">
-                        <div class="row">
-                            
-                            <div class="col-md-8 col-md-offset-2" id='topRow' hidden>
-<!--                                <label id="finishRound">Save Score</label> <input type="checkbox" id="finishRound" name="finishRound">
-                                <input type='button' onclick="updateScore()" id="updateScore" value="Update Score">-->
-                                <!--<input type='button' id="lastRound"  onclick="getLastRound()" value="Show Last Round">-->
-                                
-                            </div>
+                        <div class="row">                            
                             <div class="col-md-12">
                                 <div class="panel panel-default">
                                     <div class="col-md-2" id='total' ></div>
@@ -37,11 +37,18 @@
                                 
                             </div>   
                         </div>
+                        <tr>
+                            <td></td>
+                            <td>
+
+                            </td>
+                        </tr>
                             @for ($current; $current <= $holes; $current++) 
                                 <tr>
+                                
                                 <th style="padding: 2px; color:green;" id='currentHole'> {{$current}} </th>
                                 <td style="padding: 2px;"><input id="score" class='{{$current}}' type="number" name="score[]" min="1" size="3" value="3" onchange="scoreColors(this,value)"></td>
-                                <td style="padding: 2px;"><input id="notes" type="text" name="notes[]" min="1" size="50" value=""></td>
+                                <td style="padding: 2px;"><input id="notes" type="text" name="notes[]" min="1" size="auto" value=""></td>
                                 </tr>
                             @endfor
                     </table>
