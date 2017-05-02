@@ -42,7 +42,6 @@ class HomeController extends Controller
         $score['score'] = $input['score'];
         $score['notes'] = $input['notes'];
         $insertScore = json_encode($score);
-        var_dump($insertScore);
 //        return;
         $total = array_sum($input['score']);
         $date = date("Y-m-d H:i:s"); 
