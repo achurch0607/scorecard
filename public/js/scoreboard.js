@@ -41,7 +41,7 @@ function updateScore(){
     }else{
         totalHTML = t;
     } 
-    document.getElementById('total').innerHTML= 'Total: ' + totalHTML;  
+    document.getElementById('total').innerHTML=  totalHTML;  
 
     while(score.length > count){
         console.log(score[count]);
@@ -120,14 +120,13 @@ function scoreColors(input, value){
 function updateScoreCount(scoreNames){
     var ace = document.getElementById('ace');
     
-    ace.innerHTML="Aces: " + scoreNames.ace;
-    $('#ace').css('display', 'inline-block');
-    document.getElementById('birdies').innerHTML="Birdies: " + scoreNames.birdie;
-    $('#birdies').css('display', 'inline-block');
-    document.getElementById('pars').innerHTML="Pars: " + scoreNames.par;
-    $('#pars').css('display', 'inline-block');
-    document.getElementById('bogey').innerHTML="bogey: " + scoreNames.bogey;
-    $('#bogey').css('display', 'inline-block');
-    document.getElementById('double').innerHTML="double+: " + scoreNames.double;
-    $('#double').css('display', 'inline-block');
+    ace.innerHTML= scoreNames.ace;
+    document.getElementById('birdies').innerHTML= scoreNames.birdie;
+    
+    document.getElementById('pars').innerHTML= scoreNames.par;
+    
+    document.getElementById('bogey').innerHTML= scoreNames.bogey;
+    
+    document.getElementById('double').innerHTML= scoreNames.double;
+//    $('#double').css('display', 'inline-block');
 }
