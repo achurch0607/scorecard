@@ -2,7 +2,7 @@
 function showDiv(elem){
    if(elem.value)
         document.getElementById('scoreboard').style.display = "block";
-//        document.getElementById('lastRound').style.display = "block";
+        document.getElementById('scoreButtons').style.display = "block";
 //        document.getElementById('topRow').style.display = "block";
         document.getElementById('total').style.display = "block";
     }   
@@ -32,7 +32,16 @@ function updateScore(){
             tot += parseInt(arr[i].value);
         }
     }
-    document.getElementById('total').innerHTML= 'Total: ' + (tot-60);  
+    var totalHTML;
+    var t  = (tot-60);
+    if (t > 0){
+       totalHTML = '+'+t; 
+    }else if(t == 0){
+        totalHTML = 'E';
+    }else{
+        totalHTML = t;
+    } 
+    document.getElementById('total').innerHTML= 'Total: ' + totalHTML;  
 
     while(score.length > count){
         console.log(score[count]);
@@ -116,6 +125,6 @@ function updateScoreCount(scoreNames){
     $('#pars').css('display', 'inline-block');
     document.getElementById('bogey').innerHTML="bogey: " + scoreNames.bogey;
     $('#bogey').css('display', 'inline-block');
-    document.getElementById('double').innerHTML="2+: " + scoreNames.double;
+    document.getElementById('double').innerHTML="double+: " + scoreNames.double;
     $('#double').css('display', 'inline-block');
 }

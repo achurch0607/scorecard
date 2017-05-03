@@ -14,7 +14,17 @@ and open the template in the editor.
     font-weight: bold;
     
 }
+#scoreButtons {
+    display: none;
+    width: auto;
+    padding-bottom: 5px;
+    padding-top: 5px
+}
 
+#scoreboard {
+    display: none;
+    width: auto;
+}
 #lastRound {
     color: red;
     float: left;
@@ -57,35 +67,41 @@ and open the template in the editor.
     background-color: gold;
     color: black;
     font-weight: bold;
+    font-size: 20px;
     display: none;
 }
 #birdies{
     background-color: green;
     color: black;
     font-weight: bold;
+    font-size: 20px;
     display: none;
 }
 #pars{
     background-color: lightgray;
     color: black;
     font-weight: bold;
+    font-size: 20px;
     display: none;
 }
 #bogey{
     background-color: orangered;
     color: black;
     font-weight: bold;
+    font-size: 20px;
     display: none;
 }
 #double{
     background-color: red;
     color: black;
     font-weight: bold;
+    font-size: 20px;
     display: none;
 }
 #total{
     color: black;
     font-weight: bold; 
+    font-size: 20px;
     display: none;
 }
 
@@ -98,3 +114,12 @@ input[type=number]{
     background-image: url('https://m.discgolfscene.com/courses/559/e2d45b6ee79a.jpg');
     opacity: .4;
 }
+
+html { 
+background: url(img/discHead.png) no-repeat center center fixed; 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+    

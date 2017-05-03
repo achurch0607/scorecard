@@ -20,6 +20,14 @@
                 height: 100vh;
                 margin: 0;
             }
+            #bg { 
+background: url(img/discHead.png) no-repeat center center fixed; 
+opacity: 0.7;
+/*-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;*/
+}
 
             .full-height {
                 height: 100vh;
@@ -65,11 +73,12 @@
         </style>
     </head>
     <body>
+        <div id='bg'>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">Score Card</a>
                     @else
                         <a href="{{ url('/login') }}">Login</a>
                         <a href="{{ url('/register') }}">Register</a>
@@ -79,16 +88,19 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    801<br>
-                    Disc Heads
+                    <!--<img src="img/discHead.png" alt="discHead">-->
+                    <h3 style="color:red;">801<br>
+                    Disc Heads</h3>
                 </div>
 
                 <div class="links">
                     <a href="/home">Scorecard</a>
-                    <a href="/login">Login</a>
+                    
                     <a href="https://www.youtube.com/user/DynamicDiscs/playlists" target="_blank">Videos</a>
+                    <a href="http://www.utahdga.com/calendar.html" target="_blank">Utah DGA Calendar</a>
                 </div>
             </div>
         </div>
+            </div>
     </body>
 </html>
