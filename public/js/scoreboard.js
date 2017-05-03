@@ -66,14 +66,17 @@ updateScoreCount(scoreNames);
     var notes = $("input[name='notes[]']").map(function(){return $(this).val();}).get()
     var finish = $("input[name='finishRound'").prop('checked');
     var course = document.getElementById('course').value;
+    if(finish){
     $.ajax({
         url: 'scoreboard',
         type: "post",
         data: {'score':score,'notes':notes, 'finish':finish, 'course':course, '_token': $('input[name=_token]').val()},
         success: function(data){
-          console.log(data);
+//          console.log(data);
+          alert('Your round has been saved!')
         }
-    });      
+    }); 
+}
 }; 
   
   function getLastRound() {
