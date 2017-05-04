@@ -15,7 +15,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/scoreboard.css') }}" rel="stylesheet">
     <link href="{{ asset('css/sb-admin-2.css') }}" rel="stylesheet">
-    
+     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -23,7 +23,7 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>-->
 </head>
 <body>
     

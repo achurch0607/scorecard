@@ -22,7 +22,7 @@
             </div>
        </div>
         <h3>         
-            <select  id="course" onchange="showDiv(this)">
+            <select  id="course" >
                 <option value="0">Choose Your Course</option>
                 <option value="Creekside">Creekside</option>
                 <option value="Taylorsville">Taylorsville</option>

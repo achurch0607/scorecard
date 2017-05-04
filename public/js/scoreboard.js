@@ -73,7 +73,8 @@ updateScoreCount(scoreNames);
         data: {'score':score,'notes':notes, 'finish':finish, 'course':course, '_token': $('input[name=_token]').val()},
         success: function(data){
 //          console.log(data);
-          alert('Your round has been saved!')
+//          alert('Your round has been saved!');
+          savedSuccess();
         }
     }); 
 }
@@ -106,7 +107,7 @@ function scoreColors(input, value){
          $(input).addClass('ace');
      }
      else if (value == 2){
-         $(input).addClass('birdie');
+        $(input).addClass('birdie');
      }
      else if(value == 4 ){
          $(input).addClass('bogey');
@@ -130,3 +131,25 @@ function updateScoreCount(scoreNames){
     document.getElementById('double').innerHTML= scoreNames.double;
 //    $('#double').css('display', 'inline-block');
 }
+
+function savedSuccess(){
+    $('#saved').show(5);
+}
+//plus minus button for score number input
+$('[id^=plus]').unbind('click').bind('click', function () {
+    var plusid = $(this).prev('input').attr('id');
+    var value = $('#'+plusid).val();
+    value++;
+    $('#'+plusid).val(value);
+    var change = $(this).prev('td');
+    scoreColors('#'+plusid,value);
+});
+
+$('[id^=minus]').unbind('click').bind('click', function () {
+    var minusid = $(this).next('input').attr('id');
+    var value = $('#'+minusid).val();
+    value--;
+    $('#'+minusid).val(value);
+    scoreColors('#'+minusid,value);
+    
+    });

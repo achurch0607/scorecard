@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : Adam
 */
 
-/*#updateScore {
+#updateScore {
     color: black;
     float: right;
     font-weight: bold;
@@ -63,47 +63,6 @@ and open the template in the editor.
     color: black;
 }
 
-#ace{
-    background-color: gold;
-    color: black;
-    font-weight: bold;
-    font-size: 20px;
-    display: none;
-}
-#birdies{
-    background-color: green;
-    color: black;
-    font-weight: bold;
-    font-size: 20px;
-    display: none;
-}
-#pars{
-    background-color: lightgray;
-    color: black;
-    font-weight: bold;
-    font-size: 20px;
-    display: none;
-}
-#bogey{
-    background-color: orangered;
-    color: black;
-    font-weight: bold;
-    font-size: 20px;
-    display: none;
-}
-#double{
-    background-color: red;
-    color: black;
-    font-weight: bold;
-    font-size: 20px;
-    display: none;
-}
-#total{
-    color: black;
-    font-weight: bold; 
-    font-size: 20px;
-    display: none;
-}*/
 
 input[type=number]{
     width: 30px;
@@ -115,11 +74,4 @@ input[type=number]{
     opacity: .4;
 }
 
-html { 
-background: url(img/discHead.png) no-repeat center center fixed; 
--webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
-background-size: cover;
-}
     
