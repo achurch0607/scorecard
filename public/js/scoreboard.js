@@ -133,7 +133,12 @@ function updateScoreCount(scoreNames){
 }
 
 function savedSuccess(){
-    $('#saved').show(5);
+    alert('hitting savedSuccess')
+    $("#saved").css("display", "block");
+    setTimeout(function() {
+        $('#saved').fadeOut('fast');
+    }, 3000);
+
 }
 //plus minus button for score number input
 $('[id^=plus]').unbind('click').bind('click', function () {
