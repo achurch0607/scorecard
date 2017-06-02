@@ -1,14 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Controllers\Auth;
-//use Illuminate\Http\Request;
+use Auth;
 use Request;
 use Log;
 use DB;
 
 
-class HomeController extends Controller
+class StatsController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -18,58 +17,70 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $holes = 20;
-        $current = 1;
-        return view('home', compact('holes','current'));
+//        $holes = 20;
+//        $current = 1;
+        $rounds = self::getRounds();
+            
+        $user = Auth::user();
+        $displayRound = array();
+        return view('stats', compact('rounds', 'user'));
     }
     
-    public function scoreboard()
+    /**
+     * 
+     * @return multi-dimensional array of all the rounds for the user. Sorted by datatables in the UI
+     */
+    public function getRounds()
     {
-        
-        $input = Request::all();
-        
-//        return;
-        //save round to database when finishRound is checked
-        $score['score'] = $input['score'];
-        $score['notes'] = $input['notes'];
-        $insertScore = json_encode($score);
-//        return;
-        $total = array_sum($input['score']);
-        $date = date("Y-m-d H:i:s"); 
-        if ($input['finish'] == 'true'){
-            var_dump($input['score']);          
-            DB::table('scorecard')->insert([
-                ['user' => '1', 'course' => $input['course'], 'score' => $insertScore,'total' => $total, 'finishRound' => '1', 'created_at' => $date ],              
-            ]);
-        }
-        
-        return (compact('input'));
-        
-    }
-    
-    public function getLastRound()
-    {
-//        $id = Auth::user()->id;
-        
-        $input = Request::all();
-//        $score = json_decode($input['score']);
-//        $lastRound = DB::select('select * from scorecard where user = ? and course = ?', 1, 'Creekside');
-        $lastRound = DB::table('scorecard')
+        $user = Auth::user();
+        $allRounds = DB::table('scorecard')
                 ->select(DB::raw('*'))
-                ->where('course', '=','Creekside')
+                ->where('user', '=', $user->id)
                 ->get();
-//        $score = json_decode($input['score']);
-//        $lastRound = 'WTF';
-//        var_dump($score);
-         return compact('lastRound','input');
+
+
+        var_dump($allRounds[0]->score);
+         return compact('allRounds');
+    }
+    
+    /**
+     * @input accepts array $score and returns the count of pars, birdies bogies, double+ and aces
+     * @return array $scoreNamesCount
+     */
+    public function getScoreNamesCount($score)
+    {
+        $scoreNamesCount['ace'] = 0;
+        $scoreNamesCount['birdie'] = 0;
+        $scoreNamesCount['par'] = 0;
+        $scoreNamesCount['bogey'] = 0;
+        $scoreNamesCount['double'] = 0;
+        
+        foreach($score as $v){
+            switch ($v){
+                case 1 :
+                    ++$scoreNamesCount['ace'] ;
+                    break;
+                case 2 :
+                    ++$scoreNamesCount['birdie'];
+                    break;
+                case 3 :
+                    $scoreNamesCount['par'];
+                    break;
+                case 4 : 
+                    $scoreNamesCount['bogey'];
+                    break;
+                case ($v > 5):
+                    $scoreNamesCount['double'];
+                    break;
+                    
+                        
+            }
+        }
+        return $scoreNamesCount;
     }
 }

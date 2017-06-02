@@ -133,7 +133,6 @@ function updateScoreCount(scoreNames){
 }
 
 function savedSuccess(){
-    alert('hitting savedSuccess')
     $("#saved").css("display", "block");
     setTimeout(function() {
         $('#saved').fadeOut('fast');

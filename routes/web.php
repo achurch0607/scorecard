@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'StatsController@index');
-Route::post('/scoreboard', 'HomeController@scoreboard');
+Route::get('/home', 'ScoreboardController@index');
+Route::post('/scoreboard', 'ScoreboardController@scoreboard');
 Route::post('/lastround', 'HomeController@getLastRound');
-//Route::post('/stats', 'StatsController@scoreboard');
+Route::get('/stats', 'StatsController@index');
